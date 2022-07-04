@@ -1,0 +1,45 @@
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <form (ngSubmit)="register()" [formGroup]="credentials">
+    <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input type="text" placeholder="First name" formControlName="fname"></ion-input>
+    </ion-item> 
+    <ion-item fill="solid" class="ion-margin-bottom">
+        <ion-input type="text" placeholder="Last name" formControlName="lname"></ion-input>
+    </ion-item>
+    <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-radio-group formControlName="gender">
+        <ion-item>
+          <ion-label>Male</ion-label>
+          <ion-radio slot="start" value="male"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Female</ion-label>
+          <ion-radio slot="start" value="female"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-item>
+    <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-label>Date of birth</ion-label>
+      <ion-datetime placeholder="Select Date" formControlName="dob"></ion-datetime>
+    </ion-item>
+    <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+      <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Email is invalid</ion-note>
+    </ion-item>
+    <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+      <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Password needs to be 6 characters</ion-note>
+    </ion-item>
+    <ion-button type="button" expand="block" color="secondary" (click)="register()">Create account</ion-button>
+  </form>
+</ion-content>
+-->

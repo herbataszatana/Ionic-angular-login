@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "vsblog-d205d": {
+      "hosting": {
+        "app": [
+          "vsblog-d205d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "vsblog-d205d"
+  }
+}
