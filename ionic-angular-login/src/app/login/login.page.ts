@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
   // Easy access for form fields
   get email() {
     return this.credentials.get('email');
-  }z
+  }
  
   get password() {
     return this.credentials.get('password');

@@ -1,30 +1,23 @@
 import { Injectable } from '@angular/core';
 import { firebaseAppFactory } from '@angular/fire/app/app.module';
-import {Auth, signInWithEmailAndPassword, authState, createUserWithEmailAndPassword,
-  updateProfile, UserInfo, UserCredential, signOut} from '@angular/fire/auth';
+import {Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, UserCredential, signOut, authState} from '@angular/fire/auth';
 import { sendPasswordResetEmail } from '@firebase/auth';
 import { Firestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-
+import { concatMap, from, Observable, of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   currentUser$ = authState(this.auth);
+
   constructor(
     private auth: Auth) {}
  
-  async register({ email, password, fname, lname, gender, dob }) { //fname added
-    try {
-      const user = await createUserWithEmailAndPassword(this.auth, email, password);
-      return user;
-    } catch (e) {
-      return null;
+  signUp(email: string, password: string): Observable<UserCredential> {
+      return from(createUserWithEmailAndPassword(this.auth, email, password));
     }
-  }
 
- 
   async login({ email, password }) {
     try {
       //const user = await signInWithEmailAndPassword(this.auth, email, password);
@@ -49,9 +42,6 @@ export class AuthService {
   logout() {
     return signOut(this.auth);
   }
-
-  
-
 
  }
 
