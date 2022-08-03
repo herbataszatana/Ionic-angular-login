@@ -36,6 +36,7 @@ export class LoginPage implements OnInit {
     });
   }
 
+  // This implements login from the authService 
   async login() {
     const loading = await this.loadingController.create();
     await loading.present();
@@ -44,7 +45,7 @@ export class LoginPage implements OnInit {
     await loading.dismiss();
  
     if (user) {
-      this.router.navigateByUrl('/home', { replaceUrl: true });
+      this.router.navigateByUrl('/note', { replaceUrl: true });
     } else {
       this.showAlert('Login failed', 'Please try again!');
     }

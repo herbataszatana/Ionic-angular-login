@@ -29,7 +29,7 @@ export class ForgotPasswordPage implements OnInit {
       email: ['', [Validators.required, Validators.email]]
     });
   }
-
+// Implements reset function form authService 
   async reset() {
     const loading = await this.loadingController.create();
     await loading.present();
@@ -38,12 +38,6 @@ export class ForgotPasswordPage implements OnInit {
     await loading.dismiss();
     this.showAlert('Password reset requested', 'Please check your inbox and follow reset instructions');
     this.router.navigateByUrl('/login', { replaceUrl: true });
-    // Keeps saying user is void 
-//    if (user) {
-//      this.router.navigateByUrl('/login', { replaceUrl: true });
-//    } else {
-//      this.showAlert('Reset failed', 'Please try again!');
-//    }
   }
  
   async showAlert(header, message) {

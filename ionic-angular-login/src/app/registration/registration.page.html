@@ -1,6 +1,6 @@
 
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="white">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -8,32 +8,10 @@
   </ion-toolbar>
 </ion-header>
 <ion-content >
-  <form (ngSubmit)="register()" [formGroup]="signUpForm">
+  <form [formGroup]="signUpForm">
     <ion-item lines="full">
-      <ion-label position="floating">First name</ion-label>
-      <ion-input type="text" placeholder="First name" formControlName="fname" required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Last name</ion-label>
-      <ion-input type="text" placeholder="First name" formControlName="lname" required></ion-input>
-    </ion-item>
-
-    <ion-item fill="full" class="ion-margin-bottom">
-      <ion-radio-group formControlName="gender">
-        <ion-item>
-          <ion-label>Male</ion-label>
-          <ion-radio slot="start" value="male"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>Female</ion-label>
-          <ion-radio slot="start" value="female"></ion-radio>
-        </ion-item>
-      </ion-radio-group>
-    </ion-item>
-
-    <ion-item lines="full">
-      <ion-label>Date of birth</ion-label>
-      <ion-datetime placeholder="Select Date" formControlName="dob"></ion-datetime>
+      <ion-label position="floating">User name</ion-label>
+      <ion-input type="text" placeholder="Username" formControlName="username" required></ion-input>
     </ion-item>
 
     <ion-item lines="full" class="ion-margin-bottom">
